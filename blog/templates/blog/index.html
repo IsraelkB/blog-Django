@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href={% static 'blog/post.css' %}>
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/Israel.jpg' %}" alt="The Author Of This Blog Israel Kabesa"/>
+        </header>
+        <p> Hi, My name is Israel Kabesa and this is my first project in django framework</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>about me</h2>
+        <p>My name is Israel Kabesa, I am a third year computer science student at the Open University.
+            I like to practice algorithms mainly in Java and Python.
+            I am self-taught, I like to be able to solve complicated problems, and above all I enjoy exploring new
+            technologies in general!.</p>
+    </section>
+
+{% endblock %}
